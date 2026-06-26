@@ -11,6 +11,8 @@ app.use(express.json());
 /*mongoose.connect('mongodb://127.0.0.1:27017/employeesDB').then(
     () => console.log('MongoDB Connected')).catch((err) => console.log(err));*/
 
+mongoose.connect("mongodb+srv://admin:admin123@cluster0.xxxxx.mongodb.net/employeesDB");
+
 app.get('/', (req, res) => {
     res.send("Priya Backend Running");
 });
