@@ -11,7 +11,9 @@ app.use(express.json());
 /*mongoose.connect('mongodb://127.0.0.1:27017/employeesDB').then(
     () => console.log('MongoDB Connected')).catch((err) => console.log(err));*/
 
-mongoose.connect("mongodb+srv://admin:Admin12345@cluster0.6p0gyye.mongodb.net/employeesDB?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://admin:Admin12345@cluster0.6p0gyye.mongodb.net/employeesDB?retryWrites=true&w=majority")
+.then(()=> console.log("MongoDB Connected")).catch(err => console.log("DB Error:", err));
+
 
 
 
@@ -70,5 +72,5 @@ app.put('/employee/:id', async (req, res) => {
 const PORT= process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log('server running on port ${PORT}');
+    console.log('server running');
 });
