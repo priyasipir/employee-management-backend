@@ -14,9 +14,6 @@ app.use(express.json());
 mongoose.connect("mongodb+srv://admin:Admin12345@cluster0.6p0gyye.mongodb.net/employeesDB?retryWrites=true&w=majority")
 .then(()=> console.log("MongoDB Connected")).catch(err => console.log("DB Error:", err));
 
-
-
-
 app.get('/', (req, res) => {
     res.send("Priya Backend Running");
 });
@@ -35,8 +32,8 @@ app.get('/employees', async (req, res) => {
     try {
         const employees = await Employee.find();
         res.status(200).json(employees);
-    } catch (error) {
-        res.status(500).json(error);
+    } catch(error) {
+        res.status(500).json({message: error.message})
     }
 });
 
