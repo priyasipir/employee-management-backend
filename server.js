@@ -11,8 +11,9 @@ app.use(express.json());
 /*mongoose.connect('mongodb://127.0.0.1:27017/employeesDB').then(
     () => console.log('MongoDB Connected')).catch((err) => console.log(err));*/
 
-mongoose.connect("mongodb+srv://admin:Priya1234@cluster0.6p0gyye.mongodb.net/employeesDB?retryWrites=true&w=majority")
-.then(()=> console.log("MongoDB Connected")).catch(err => console.log("DB Error:", err));
+mongoose.Connection("mongodb+srv://admin:Priya1234@cluster0.6p0gyye.mongodb.net/employeesDB?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=>console.log("MongoDB Connected"))
+.catch(err=> console.log("DB Error:",err));
 
 app.get('/', (req, res) => {
     res.send("Priya Backend Running");
